@@ -41,35 +41,35 @@ app.get('/createObj', function(req, res){
   res.render('pages/template');
 });
 
-// Template route
-// app.get('/slideshow', function(req, res){
+// SlideShow route
+app.get('/slideshow', function(req, res){
 
-//   var imgdata = {
+  var imgdata = {
 
-//     img_1_responsive: "img/1-375.jpg 375, img/1-480.jpg 480, img/1.jpg 800",
-//     img_1_src: "img/1-1600.jpg",
-//     img_1_text: "Text Sample",
-//     img_1_thumb: "img/thumb-1.jpg",
+    img_1_responsive: "img/1-375.jpg 375, img/1-480.jpg 480, img/1.jpg 800",
+    img_1_src: "img/1-1600.jpg",
+    img_1_text: "Text Sample",
+    img_1_thumb: "img/thumb-1.jpg",
 
-//     img_2_responsive: "img/2-375.jpg 375, img/2-480.jpg 480, img/2.jpg 800",
-//     img_2_src: "img/2-1600.jpg",
-//     img_2_text: "Text Sample",
-//     img_2_thumb: "img/thumb-2.jpg",
+    img_2_responsive: "img/2-375.jpg 375, img/2-480.jpg 480, img/2.jpg 800",
+    img_2_src: "img/2-1600.jpg",
+    img_2_text: "Text Sample",
+    img_2_thumb: "img/thumb-2.jpg",
 
-//     img_3_responsive: "img/13-375.jpg 375, img/13-480.jpg 480, img/13.jpg 800",
-//     img_3_src: "img/13-1600.jpg",
-//     img_3_text: "Text Sample",
-//     img_3_thumb: "img/thumb-13.jpg",
+    img_3_responsive: "img/13-375.jpg 375, img/13-480.jpg 480, img/13.jpg 800",
+    img_3_src: "img/13-1600.jpg",
+    img_3_text: "Text Sample",
+    img_3_thumb: "img/thumb-13.jpg",
 
-//     img_4_responsive: "img/4-375.jpg 375, img/4-480.jpg 480, img/4.jpg 800",
-//     img_4_src: "img/4-1600.jpg",
-//     img_4_text: "Text Sample",
-//     img_4_thumb: "img/thumb-4.jpg",
+    img_4_responsive: "img/4-375.jpg 375, img/4-480.jpg 480, img/4.jpg 800",
+    img_4_src: "img/4-1600.jpg",
+    img_4_text: "Text Sample",
+    img_4_thumb: "img/thumb-4.jpg",
 
-//   }
+  }
 
-//   res.render('pages/slideshow', {data: imgdata});
-// });
+  res.render('pages/slideshow', {data: imgdata});
+});
 
 // server creation
 var server = app.listen(3000, function(){
