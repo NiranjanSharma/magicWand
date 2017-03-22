@@ -1,0 +1,431 @@
+<html lang="en">
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/template.css" />
+  </head>
+
+  <body class="container">
+    
+    <header>
+      <%include ../partials/header %>
+    </header>
+
+    <head>
+      <h2><% include ../partials/head %>Template</h2>
+    </head>
+
+    <form action="/prepareObject/generateJson" method="post" enctype = "multipart/form-data">
+
+      <div class="col-xs-4">
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter your Character Name</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="characterName" 
+              type="text" 
+              class="form-control" 
+              name="characterName" 
+              pattern="[A-Za-z\s]{2,10}"
+              placeholder="Enter your Character Name"
+              title="Character Name should be min length of 2 and max length of 10 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter your Character profession</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="characterProfession" 
+              type="text" 
+              class="form-control" 
+              name="characterProfession" 
+              pattern="[A-Za-z\s]{2,10}"
+              placeholder="Enter your Character profession" 
+              title="Character profession should be min length of 2 and max length of 10 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter the problem statement</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="problemStatement" 
+              type="text" 
+              class="form-control" 
+              name="problemStatement" 
+              pattern="[A-Za-z\s]{5,80}"
+              placeholder="Enter the problem customer is facing with" 
+              title="Character profession should be min length of 5 and max length of 80 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter the first option explored</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="exploredOption1" 
+              type="text" 
+              class="form-control" 
+              name="exploredOption1" 
+              pattern="[A-Za-z\s]{2,20}"
+              placeholder="Enter the first option he explored" 
+              title="Option should be min length of 5 and max length of 20 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter the second option explored</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="exploredOption2" 
+              type="text" 
+              class="form-control" 
+              name="exploredOption2" 
+              pattern="[A-Za-z\s]{2,20}"
+              placeholder="Enter the second option he explored" 
+              title="Option should be min length of 2 and max length of 20 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter the third option explored</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="exploredOption3" 
+              type="text" 
+              class="form-control" 
+              name="exploredOption3" 
+              pattern="[A-Za-z\s]{2,20}"
+              placeholder="Enter the third option he explored" 
+              title="Option should be min length of 2 and max length of 10 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter your product name</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="productName" 
+              type="text" 
+              class="form-control" 
+              name="productName" 
+              pattern="[A-Za-z\s]{2,20}"
+              placeholder="Enter your product name" 
+              title="Product name should be min length of 2 and max length of 20 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Upload your Product Logo</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              type="file" 
+              class="btn btn-default btn-file col-xs-12" 
+              name="productLogo" required >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Enter Product Slogan</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="slogan" 
+              type="text" 
+              class="form-control" 
+              name="slogan" 
+              placeholder="Enter Product Slogan"
+              pattern="[A-Za-z\s]{5,60}"
+              title="Slogan should be min length of 5 and max length of 60 with A-Za-z0-9.*&:" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide your first benefit</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="benefit1" 
+              type="text" 
+              class="form-control" 
+              name="benefit1" 
+              placeholder="Provide your first benefit"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+            </div>
+          </div>
+
+
+             <div class="col-xs-12">
+            <div class="col-xs-12">
+             <label class="lblForm">Provide your second benefit</label>
+            </div>
+
+            <div class="col-xs-12">
+              <input 
+              id="benefit2" 
+              type="text" 
+              class="form-control" 
+              name="benefit2" 
+              placeholder="Provide your second benefit"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+            </div>
+          </div>
+
+           <div class="col-xs-12">
+            <div class="col-xs-12">
+             <label class="lblForm">Provide your third benefit</label>
+            </div>
+
+            <div class="col-xs-12">
+              <input 
+              id="benefit3" 
+              type="text" 
+              class="form-control" 
+              name="benefit3" 
+              placeholder="Provide your third benefit"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+            </div>
+          </div>
+
+        
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide the solution offered</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="soultionOffered" 
+              type="text" 
+              class="form-control" 
+              name="soultionOffered" 
+              placeholder="Enter solution  of Product"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 60 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide the first key feature</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="keyFeature1" 
+              type="text" 
+              class="form-control" 
+              name="keyFeature1" 
+              placeholder="Provide the first key feature"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 60 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide the second key feature</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="keyFeature2" 
+              type="text" 
+              class="form-control" 
+              name="keyFeature2" 
+              placeholder="Provide second key feature"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide the third key feature</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="keyFeature3" 
+              type="text" 
+              class="form-control" 
+              name="keyFeature3" 
+              placeholder="Provide the second key feature"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Upload your first screen</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              type="file" 
+              class="btn btn-default btn-file col-xs-12" 
+              name="screen1" required >
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide the Screen1 text</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="screen1Text" 
+              type="text" 
+              class="form-control" 
+              name="screen1Text" 
+              placeholder="Provide the Screen1 text"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Upload your second screen</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              type="file" 
+              class="btn btn-default btn-file col-xs-12" 
+              name="screen2" required >
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide the Screen2 text</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="screen2Text" 
+              type="text" 
+              class="form-control" 
+              name="screen2Text" 
+              placeholder="Provide the Screen2 text"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Upload your third screen</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              type="file" 
+              class="btn btn-default btn-file col-xs-12" 
+              name="screen3" required >
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Provide the Screen3 text</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="screen3Text" 
+              type="text" 
+              class="form-control" 
+              name="screen3Text" 
+              placeholder="Provide the Screen3 text"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+           <label class="lblForm">Entery your name</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+            id="output" 
+            type="text" 
+            class="form-control" 
+            name="output" 
+            placeholder="Enter your name"
+            pattern="[A-Za-z\s]{5,60}"
+            title="Name should be min length of 5 and max length of 60 with A-Za-z0-9.*&:" required>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <label class="lblForm">Website</label>
+          </div>
+
+          <div class="col-xs-12">
+            <input 
+              id="website" 
+              type="text" 
+              class="form-control" 
+              name="website" 
+              placeholder="Enter a Website URL"
+              title="" required> 
+              <!-- pattern="http://stackoverflow.com"www.?-?(\w+)*.[A-Za-z0-9].com   -->
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="col-xs-12">
+            <button type="submit" id="btnlogin"  class="btn btn-default btn-lg" style="margin-top: 10px">Generate</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+

@@ -1,0 +1,22 @@
+{
+  "name": "simple_web_app",
+  "version": "1.0.0",
+  "description": "Simple Web App for Form Input and SignUp",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aditya, Goutham, Krishna, Prasad, Satish",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.5",
+    "express": "^4.14.1",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.8.1",
+    "multer": "^1.3.0",
+    "path": "^0.12.7",
+    "uuid-lib": "0.0.6"
+  }
+}
