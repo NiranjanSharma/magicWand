@@ -283,17 +283,18 @@
             $('.window').hide();
             });
 
-            //if mask is clicked
+            /*//if mask is clicked
             $('#mask').click(function () {
             $(this).hide();
             $('.window').hide();
-            });
+            });*/
 
 
 /*-------------LOAD IMAGES IF EXIST ELSE CALL COUNTDOWN FUNCTION --------------------*/
 
             var dataLength = '<%= imageCount %>';
-            if(dataLength>0)
+            var scenesCount = '<%= scenesCount %>';
+            if(dataLength==scenesCount)
                 {    
                  $('#demoGallery').show();
                  $('#main-example').hide();
@@ -322,16 +323,8 @@
 
               if (seconds == 1) {
                    
-                   //CODE OF PASSPORT TO REFRESH THE PAGE AND GET DATA
-/*
-                   $('#demoGallery').show();
-                    $('#main-example').hide();
-                    $('#mask').hide();
-                    $('.window').hide();*/
-                 
-                 
                   $("#checkPreview").click();   
-                 //location.reload();               
+                         
                 return;
                 
                 }
@@ -350,7 +343,6 @@
 
 
 </script>
-
 </head>
 <body class="home">
     <div id="page">
@@ -376,10 +368,9 @@
    <div id="mask"></div>
     </div>
 
-          <div class="demo-gallery" id="demoGallery">
+  <div class="demo-gallery" id="demoGallery">
 
-          
-              <ul id="lightgallery" class="list-unstyled row">
+            <ul id="lightgallery" class="list-unstyled row">
 
                          <% datas.forEach(function(item){ %>
 
@@ -390,15 +381,41 @@
                           </li>
                           
                           <% }); %>
-              </ul>     
+            </ul>     
 
-               <form action="/slideshow" method="get">
-                   <input id="dataLength" type="hidden" value='<%= imageCount %>' />
-                   <div style="visibility: hidden">
+</div>
+
+<!-- ..........................................................................................................-->
+
+
+
+
+  
+              <form action="/slideshow" method="post">
+        
+
+                 <input id="generateVideo" type="hidden" class="form-control" name="generateVideo" placeholder="Enter a Website URL" title="" value='false'>
+
+
+                 <div style="visibility: hidden">
+
+
                       <button type="submit" id="checkPreview"></button>
-                  </div>  
+                  </div> 
+
+                    
                 </form>
-          </div>
+
+
+                   <form action="/slideshow" method="post">
+
+                    
+                    <input id="generateVideo" type="hidden" class="form-control" name="generateVideo" placeholder="Enter a Website URL" title="" value='true'>
+
+                    <button type="submit" id="btnlogin"  class="btn btn-default btn-lg" style="margin-top: 10px">Generate Video</button>
+            
+                     
+              </form>   
           </div>
       </body>
   </html>

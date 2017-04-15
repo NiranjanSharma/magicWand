@@ -83,17 +83,19 @@ function(req, res) {
     website: req.body.website,
     slogan: req.body.slogan,
     output:  req.user.username+'_[#]',
+    module:'',
+    target:'',
     render_status:'ready',
 
     ID: uuid.raw()
   });
 
-console.log("req.user: " + req.user);
+//console.log("req.user: " + req.user);
 explainer.sendProductExplainerJson("formJson",JSON.stringify(temp),0);
 
 
 
-require('./slideshow').slide(req,res);
+require('./slideshow').slide(req,res,temp);
 
 
 });

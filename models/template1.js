@@ -29,6 +29,8 @@ var TemplateSchema = new SchemaObject({
 	slogan: String,
 	render_status: String,
     output: String,
+    module: String,
+    target:String,
 	ID: String
 }, {_id: false});
 

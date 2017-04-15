@@ -40,10 +40,10 @@
 
         useLeft: false,
 
-        closable: true,
+        closable: false,
         loop: true,
-        escKey: true,
-        keyPress: true,
+        escKey: false,
+        keyPress: false,
         controls: true,
         slideEndAnimatoin: true,
         hideControlOnEnd: false,
