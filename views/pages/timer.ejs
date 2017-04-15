@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Clock</title>
+  
+ <style>
+ #mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  background-color: #000;
+  display: none;
+}
+
+#boxes .window {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 440px;
+  height: 200px;
+  display: none;
+  z-index: 9999;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#boxes #dialog {
+  width: 750px;
+  height: 300px;
+  padding: 10px;
+  background-color: #ffffff;
+  font-family: 'Segoe UI Light', sans-serif;
+  font-size: 15pt;
+}
+
+#popupfoot {
+  font-size: 16pt;
+  position: absolute;
+  bottom: 0px;
+  width: 250px;
+  left: 250px;
+}
+ </style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+ <!--  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+
+
+
+<script src="../../js/easytimer.min.js"></script>
+<script>
+/*var timer = require('D:/ANIL_PRODUCTS/SimpleWebApp/SimpleWebApp/node_modules/easytimer/dist/easytimer.min.js');
+timer.start({countdown: true, startValues: {seconds: 30}});
+$('#countdownExample.values').html(timer.getTimeValues().toString());
+timer.addEventListener('secondsUpdated', function (e) {
+
+    $('#countdownExample.values').html(timer.getTimeValues().toString());
+});
+timer.addEventListener('targetAchieved', function (e) {
+    $('#countdownExample.values').html('KABOOM!!');
+});*/
+       
+ $( function() {
+    $( "#dialog" ).dialog();
+  } );
+
+  </script>
+
+</script> -->
+
+<script type="text/javascript">
+    
+
+$(document).ready(function() {  
+
+var id = '#dialog';
+    
+//Get the screen height and width
+var maskHeight = $(document).height();
+var maskWidth = $(window).width();
+    
+//Set heigth and width to mask to fill up the whole screen
+$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+//transition effect
+$('#mask').fadeIn(500); 
+$('#mask').fadeTo("slow",0.9);  
+    
+//Get the window height and width
+var winH = $(window).height();
+var winW = $(window).width();
+              
+//Set the popup window to center
+$(id).css('top',  winH/2-$(id).height()/2);
+$(id).css('left', winW/2-$(id).width()/2);
+    
+//transition effect
+$(id).fadeIn(2000);     
+    
+//if close button is clicked
+$('.window .close').click(function (e) {
+//Cancel the link behavior
+e.preventDefault();
+
+$('#mask').hide();
+$('.window').hide();
+});
+
+//if mask is clicked
+$('#mask').click(function () {
+$(this).hide();
+$('.window').hide();
+});
+    
+});
+
+</script>
+
+
+</head>
+
+<body>
+  
+<!-- <div id="countdownExample">
+    <div class="values"></div>
+</div>
+             
+<div id="dialog" title="Basic dialog">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+ 
+<p>Sed vel diam id libero <a href="http://example.com">rutrum convallis</a>. Donec aliquet leo vel magna. Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, arcu felis ultricies neque, sit amet auctor elit eros a lectus.</p>
+
+ -->
+
+
+<div id="boxes">
+  <div id="dialog" class="window">
+    Your Content Goes Here
+    <div id="popupfoot"> <a href="#" class="close agree">I agree</a> | <a class="agree"style="color:red;" href="#">I do not agree</a> </div>
+  </div>
+  <div id="mask"></div>
+</div>
+
+</body>
+</html>

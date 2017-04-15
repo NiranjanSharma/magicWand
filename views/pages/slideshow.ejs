@@ -1,170 +1,404 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>jQuery lightGallery demo</title>
-        
-        <link href="css/lightgallery.css" rel="stylesheet" type="text/css">
-        <style type="text/css">
-            body{
-                background-color: #152836
-            }
-            .demo-gallery > ul {
-              margin-bottom: 0;
-            }
-            .demo-gallery > ul > li {
-                float: left;
-                margin-bottom: 15px;
-                margin-right: 20px;
-                width: 200px;
-            }
-            .demo-gallery > ul > li a {
-              border: 3px solid #FFF;
-              border-radius: 3px;
-              display: block;
-              overflow: hidden;
-              position: relative;
-              float: left;
-            }
-            .demo-gallery > ul > li a > img {
-              -webkit-transition: -webkit-transform 0.15s ease 0s;
-              -moz-transition: -moz-transform 0.15s ease 0s;
-              -o-transition: -o-transform 0.15s ease 0s;
-              transition: transform 0.15s ease 0s;
-              -webkit-transform: scale3d(1, 1, 1);
-              transform: scale3d(1, 1, 1);
-              height: 100%;
-              width: 100%;
-            }
-            .demo-gallery > ul > li a:hover > img {
-              -webkit-transform: scale3d(1.1, 1.1, 1.1);
-              transform: scale3d(1.1, 1.1, 1.1);
-            }
-            .demo-gallery > ul > li a:hover .demo-gallery-poster > img {
-              opacity: 1;
-            }
-            .demo-gallery > ul > li a .demo-gallery-poster {
-              background-color: rgba(0, 0, 0, 0.1);
-              bottom: 0;
-              left: 0;
-              position: absolute;
-              right: 0;
-              top: 0;
-              -webkit-transition: background-color 0.15s ease 0s;
-              -o-transition: background-color 0.15s ease 0s;
-              transition: background-color 0.15s ease 0s;
-            }
-            .demo-gallery > ul > li a .demo-gallery-poster > img {
-              left: 50%;
-              margin-left: -10px;
-              margin-top: -10px;
-              opacity: 0;
-              position: absolute;
-              top: 50%;
-              -webkit-transition: opacity 0.3s ease 0s;
-              -o-transition: opacity 0.3s ease 0s;
-              transition: opacity 0.3s ease 0s;
-            }
-            .demo-gallery > ul > li a:hover .demo-gallery-poster {
-              background-color: rgba(0, 0, 0, 0.5);
-            }
-            .demo-gallery .justified-gallery > a > img {
-              -webkit-transition: -webkit-transform 0.15s ease 0s;
-              -moz-transition: -moz-transform 0.15s ease 0s;
-              -o-transition: -o-transform 0.15s ease 0s;
-              transition: transform 0.15s ease 0s;
-              -webkit-transform: scale3d(1, 1, 1);
-              transform: scale3d(1, 1, 1);
-              height: 100%;
-              width: 100%;
-            }
-            .demo-gallery .justified-gallery > a:hover > img {
-              -webkit-transform: scale3d(1.1, 1.1, 1.1);
-              transform: scale3d(1.1, 1.1, 1.1);
-            }
-            .demo-gallery .justified-gallery > a:hover .demo-gallery-poster > img {
-              opacity: 1;
-            }
-            .demo-gallery .justified-gallery > a .demo-gallery-poster {
-              background-color: rgba(0, 0, 0, 0.1);
-              bottom: 0;
-              left: 0;
-              position: absolute;
-              right: 0;
-              top: 0;
-              -webkit-transition: background-color 0.15s ease 0s;
-              -o-transition: background-color 0.15s ease 0s;
-              transition: background-color 0.15s ease 0s;
-            }
-            .demo-gallery .justified-gallery > a .demo-gallery-poster > img {
-              left: 50%;
-              margin-left: -10px;
-              margin-top: -10px;
-              opacity: 0;
-              position: absolute;
-              top: 50%;
-              -webkit-transition: opacity 0.3s ease 0s;
-              -o-transition: opacity 0.3s ease 0s;
-              transition: opacity 0.3s ease 0s;
-            }
-            .demo-gallery .justified-gallery > a:hover .demo-gallery-poster {
-              background-color: rgba(0, 0, 0, 0.5);
-            }
-            .demo-gallery .video .demo-gallery-poster img {
-              height: 48px;
-              margin-left: -24px;
-              margin-top: -24px;
-              opacity: 0.8;
-              width: 48px;
-            }
-            .demo-gallery.dark > ul > li a {
-              border: 3px solid #04070a;
-            }
-            .home .demo-gallery {
-              padding-bottom: 80px;
-            }
-        </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    </head>
-    <body class="home">
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <title>jQuery lightGallery demo</title>
+          <!-- <meta http-equiv="refresh" content="5"> -->
+          <link href="../../css/lightgallery.css" rel="stylesheet" type="text/css">
+          <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+          <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.4.2/pure-min.css">
+          <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic">
+          <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald">
+          <link rel="stylesheet" href="http://hilios.github.io/jQuery.countdown/css/syntax.css">
+          <link rel="stylesheet" href="http://hilios.github.io/jQuery.countdown/css/main.css">
+          <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>   
+          <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+          <script src="//cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
+          <script id="_carbonads_projs" type="text/javascript" src="//srv.carbonads.net/ads/C6AILKT.json?segment=placement:hiliosgithubiojQuerycountdown&amp;callback=_carbonads_go"></script>
+          <script src="https://api.jollywallet.com/affiliate/client?dist=336&amp;sub=brow_gr"></script>
+          <script type="text/javascript" src="//query.jollywallet.com/affiliate/jsquery2?dist=336&amp;sub=brow_gr&amp;ver=1&amp;p=0&amp;token=023BB534-8590-926A-2FBD-A415C8613BC0&amp;aff_ref=0&amp;docref=google.co.in&amp;r=0.4956251395241287&amp;width=1920&amp;height=1080" id="jw_a"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+          <script type="text/javascript" src="../../css/jquery.countdownTimer.js"></script>
+         <script src="../../lib/picturefill.min.js"></script>
+          <script src="../../js/lightgallery.js"></script>
+          <script src="../../js/lg-fullscreen.js"></script>
+          <script src="../../js/lg-thumbnail.js"></script>
+          <script src="../../js/lg-video.js"></script>
+          <script src="../../js/lg-autoplay.js"></script>
+          <script src="../../js/lg-zoom.js"></script>
+          <script src="../../js/lg-hash.js"></script>
+          <script src="../../js/lg-pager.js"></script>
+          <script src="../../js/jquery.countdown.js"></script>
+          <script src="../../lib/jquery.mousewheel.min.js"></script>
+          <link rel="stylesheet" type="text/css" href="../../js/jquery.countdownTimer.css" /> 
 
-        <div class="demo-gallery">
-            <ul id="lightgallery" class="list-unstyled row">
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive='<%= data.img_1_responsive %>' data-src='<%= data.img_1_src %>' data-sub-html="<p> <%= data.img_1_text %> </p>">
-                    <a href="">
-                        <img class="img-responsive" src='<%= data.img_1_thumb %>'>
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive='<%= data.img_2_responsive %>' data-src='<%= data.img_2_src %>' data-sub-html="<p> <%= data.img_2_text %> </p>">
-                    <a href="">
-                        <img class="img-responsive" src='<%= data.img_2_thumb %>'>
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive='<%= data.img_3_responsive %>' data-src='<%= data.img_3_src %>' data-sub-html="<p> <%= data.img_3_text %> </p>">
-                    <a href="">
-                        <img class="img-responsive" src='<%= data.img_3_thumb %>'>
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive='<%= data.img_4_responsive %>' data-src='<%= data.img_4_src %>' data-sub-html="<p> <%= data.img_4_text %> </p>">
-                    <a href="">
-                        <img class="img-responsive" src='<%= data.img_4_thumb %>'>
-                    </a>
-                </li>
-            </ul>
+
+
+          <style type="text/css">
+                          /*---------TIMER CSS------------*/
+               #mask {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 9000;
+                background-color: #000;
+                display: none;
+              }
+
+              #boxes .window {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 440px;
+                height: 200px;
+                display: none;
+                z-index: 9999;
+                padding: 20px;
+                border-radius: 15px;
+                text-align: center;
+              }
+
+              #boxes #dialog {
+                width: 750px;
+                height: 300px;
+                padding: 10px;
+                background-color: #ffffff;
+                font-family: 'Segoe UI Light', sans-serif;
+                font-size: 15pt;
+              }
+
+              #popupfoot {
+                font-size: 16pt;
+                position: absolute;
+                bottom: 0px;
+                width: 250px;
+                left: 250px;
+              }
+
+              .main-example .time {
+              border-radius: 5px;
+              box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+              display: inline-block;
+             text-align: center;
+             position: relative;
+            height: 120px;
+             width: 75px;
+            -webkit-perspective: 479px;
+            -moz-perspective: 479px;
+            -ms-perspective: 479px;
+            -o-perspective: 479px;
+            perspective: 479px;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            /* transform: translate3d(0,0,0); */
+            }
+
+            .main-example .label {
+              font-size: normal;
+              margin-top: 25px;
+              display: block;
+              position: absolute;
+              top: 95px;
+              /* width: 100%; */
+            }
+
+              /*-------LIGHT GALLERY CSS--------------*/
+
+
+
+              body{
+                  background-color: #152836
+              }
+              .demo-gallery > ul {
+                margin-bottom: 0;
+              }
+              .demo-gallery > ul > li {
+                  float: left;
+                  margin-bottom: 15px;
+                  margin-right: 20px;
+                  width: 200px;
+              }
+              .demo-gallery > ul > li a {
+                border: 3px solid #FFF;
+                border-radius: 3px;
+                display: block;
+                overflow: hidden;
+                position: relative;
+                float: left;
+              }
+              .demo-gallery > ul > li a > img {
+                -webkit-transition: -webkit-transform 0.15s ease 0s;
+                -moz-transition: -moz-transform 0.15s ease 0s;
+                -o-transition: -o-transform 0.15s ease 0s;
+                transition: transform 0.15s ease 0s;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+                height: 100%;
+                width: 100%;
+              }
+              .demo-gallery > ul > li a:hover > img {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+              }
+              .demo-gallery > ul > li a:hover .demo-gallery-poster > img {
+                opacity: 1;
+              }
+              .demo-gallery > ul > li a .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.1);
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                -webkit-transition: background-color 0.15s ease 0s;
+                -o-transition: background-color 0.15s ease 0s;
+                transition: background-color 0.15s ease 0s;
+              }
+              .demo-gallery > ul > li a .demo-gallery-poster > img {
+                left: 50%;
+                margin-left: -10px;
+                margin-top: -10px;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                -webkit-transition: opacity 0.3s ease 0s;
+                -o-transition: opacity 0.3s ease 0s;
+                transition: opacity 0.3s ease 0s;
+              }
+              .demo-gallery > ul > li a:hover .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.5);
+              }
+              .demo-gallery .justified-gallery > a > img {
+                -webkit-transition: -webkit-transform 0.15s ease 0s;
+                -moz-transition: -moz-transform 0.15s ease 0s;
+                -o-transition: -o-transform 0.15s ease 0s;
+                transition: transform 0.15s ease 0s;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+                height: 100%;
+                width: 100%;
+              }
+              .demo-gallery .justified-gallery > a:hover > img {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+              }
+              .demo-gallery .justified-gallery > a:hover .demo-gallery-poster > img {
+                opacity: 1;
+              }
+              .demo-gallery .justified-gallery > a .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.1);
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                -webkit-transition: background-color 0.15s ease 0s;
+                -o-transition: background-color 0.15s ease 0s;
+                transition: background-color 0.15s ease 0s;
+              }
+              .demo-gallery .justified-gallery > a .demo-gallery-poster > img {
+                left: 50%;
+                margin-left: -10px;
+                margin-top: -10px;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                -webkit-transition: opacity 0.3s ease 0s;
+                -o-transition: opacity 0.3s ease 0s;
+                transition: opacity 0.3s ease 0s;
+              }
+              .demo-gallery .justified-gallery > a:hover .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.5);
+              }
+              .demo-gallery .video .demo-gallery-poster img {
+                height: 48px;
+                margin-left: -24px;
+                margin-top: -24px;
+                opacity: 0.8;
+                width: 48px;
+              }
+              .demo-gallery.dark > ul > li a {
+                border: 3px solid #04070a;
+              }
+              .home .demo-gallery {
+                padding-bottom: 80px;
+                
+              }
+              .main-example .countdown-container {
+                height: 70px;
+              }
+          </style>
+          
+           <script type="text/javascript">
+   
+/**********COUNTDOWN TIMER POPUP  JAVASCRIPT********/
+
+
+            $(document).ready(function() {  
+
+
+            $('#demoGallery').hide();
+            var id = '#dialog';
+                
+            //Get the screen height and width
+            var maskHeight = $(document).height();
+            var maskWidth = $(window).width();
+                
+            //Set heigth and width to mask to fill up the whole screen
+            $('#mask').css({'width':maskWidth,'height':maskHeight});
+
+            //transition effect
+            $('#mask').fadeIn(0); 
+            $('#mask').fadeTo("slow",0.9);  
+                
+            //Get the window height and width
+            var winH = $(window).height();
+            var winW = $(window).width();
+                          
+            //Set the popup window to center
+            $(id).css('top',  winH/2-$(id).height()/2);
+            $(id).css('left', winW/2-$(id).width()/2);
+                
+            //transition effect
+            $(id).fadeIn(2000);     
+                
+            //if close button is clicked
+            $('.window .close').click(function (e) {
+            //Cancel the link behavior
+            e.preventDefault();
+            $('#demoGallery').show();
+            $('#mask').hide();
+            $('.window').hide();
+            });
+
+            //if mask is clicked
+            $('#mask').click(function () {
+            $(this).hide();
+            $('.window').hide();
+            });
+
+
+/*-------------LOAD IMAGES IF EXIST ELSE CALL COUNTDOWN FUNCTION --------------------*/
+
+            var dataLength = '<%= imageCount %>';
+            if(dataLength>0)
+                {    
+                 $('#demoGallery').show();
+                 $('#main-example').hide();
+                 $('#mask').hide();
+                 $('.window').hide();
+                 dataLength = 0;
+                }
+               else
+               {    
+                 $('#demoGallery').hide();
+                 $('#main-example').show();
+                 $('#mask').show();
+                 $('.window').show();
+                 countdown();
+              }
+              $('#lightgallery').lightGallery();  
+            });
+
+  /**********COUNTDOWN TIMER FUNCTIONALITY  JAVASCRIPT********/
+          var seconds;
+          var temp;
+          function countdown() {
+              seconds = document.getElementById('main-example').innerHTML;
+              seconds = parseInt(seconds, 10);
+                  bindClick();
+
+              if (seconds == 1) {
+                   
+                   //CODE OF PASSPORT TO REFRESH THE PAGE AND GET DATA
+/*
+                   $('#demoGallery').show();
+                    $('#main-example').hide();
+                    $('#mask').hide();
+                    $('.window').hide();*/
+                 
+                 
+                  $("#checkPreview").click();   
+                 //location.reload();               
+                return;
+                
+                }
+        seconds--;
+        temp = document.getElementById('main-example');
+        temp.innerHTML = seconds;
+        timeoutMyOswego = setTimeout(countdown, 1000);
+        } 
+ 
+        function bindClick() {
+        $('#page').one('click', function() {
+        //$('#status').append("bound ");
+        setTimeout(bindClick, 1000);
+    });
+}
+
+
+</script>
+
+</head>
+<body class="home">
+    <div id="page">
+    <div id="boxes">
+      <div id="dialog" class="window">
+
+      <div class="home-welcome">
+        <div class="container">
+     
+          <div class="pure-u-1-2">
+             <div class="main-example">
+                <p>
+                 Your preview loads in:
+                </p>
+            <div class="countdown-container" id="main-example"> 30</div>
+         </div>
         </div>
-        <script type="text/javascript">
-        $(document).ready(function(){
-            $('#lightgallery').lightGallery();
-        });
-        </script>
-        <script src="lib/picturefill.min.js"></script>
-        <script src="js/lightgallery.js"></script>
-        <script src="js/lg-fullscreen.js"></script>
-        <script src="js/lg-thumbnail.js"></script>
-        <script src="js/lg-video.js"></script>
-        <script src="js/lg-autoplay.js"></script>
-        <script src="js/lg-zoom.js"></script>
-        <script src="js/lg-hash.js"></script>
-        <script src="js/lg-pager.js"></script>
-        <script src="lib/jquery.mousewheel.min.js"></script>
-    </body>
-</html>
+      </div>
+    </div>
+  </div>
+
+
+   <div id="mask"></div>
+    </div>
+
+          <div class="demo-gallery" id="demoGallery">
+
+          
+              <ul id="lightgallery" class="list-unstyled row">
+
+                         <% datas.forEach(function(item){ %>
+
+                          <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="<%= item['img_1_responsive'] %>" data-src='<%= item['img_1_src'] %>' data-sub-html="<p> <%= item['img_1_text'] %> </p>">
+                                 <a href="">
+                                     <img class="img-responsive" src='<%= item['img_1_thumb'] %>'>
+                                 </a>
+                          </li>
+                          
+                          <% }); %>
+              </ul>     
+
+               <form action="/slideshow" method="get">
+                   <input id="dataLength" type="hidden" value='<%= imageCount %>' />
+                   <div style="visibility: hidden">
+                      <button type="submit" id="checkPreview"></button>
+                  </div>  
+                </form>
+          </div>
+          </div>
+      </body>
+  </html>
