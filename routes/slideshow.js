@@ -7,11 +7,15 @@ var app = express();
 
 var explainer = require('./kafkaProducer');
 
+
+
+//var prepare1 = require('./prepare');
+
 var fs = require('fs');
 
 var encodingFormat = 'utf8';
 
-var fs1 = require('fs-extra')
+const fse = require('fs-extra')
 
 var file_path = 'D:/ANIL_PRODUCTS/SimpleWebApp/SimpleWebApp/jsonData/productExplainer.json';  
 
@@ -38,7 +42,18 @@ var upload = multer({storage: storage});
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+var ejsDir='../output/Preview/'
 
+var jsDir = './public/output/Preview/';
+
+
+var scenesCount = 14;
+
+
+      
+var imageType = '.png';
+      
+     
 
 
 // slideshow route
@@ -51,20 +66,11 @@ router.post('/',urlencodedParser,slide);
 
         var userData1 = '';
 
-       var ejsDir='../output/Preview/'
-
-       var jsDir = './public/output/Preview/';
-    
-       var scenesCount = 14;
-
-      var clientName=req.user.username;
-      
-      var imageType = '.png';
-      
-      var imgdata = [];
+       var imgdata = [];
 
       var imageCount =0;
-
+      
+      var clientName=req.user.username;
 
     for(var i=1; i<=scenesCount; i++)
              {
@@ -81,19 +87,27 @@ router.post('/',urlencodedParser,slide);
 
             }
 
+  if(req.body.generateForm!='true')
+   {
 
       if(req.body.generateVideo!='true')
        { 
-          
+         
+
           res.render('pages/slideshow', {datas: imgdata,clientName:clientName,imageCount:imageCount,scenesCount:scenesCount,userData:userData,status:false});
+
+
        }
       else
       {
 
-                    var fileData = fs.readFileSync(file_path);
+
+                    var file_path1 = './jsonData/'+clientName+'.json';
+
+                    var fileData = fs.readFileSync(file_path1);
                   
                     usersRetrievedData =  JSON.parse(fileData);
-
+                    console.log("USER RETRIEVED DATA"+JSON.stringify(usersRetrievedData[usersRetrievedData.length - 1])); 
 
                     delete usersRetrievedData[usersRetrievedData.length - 1]["render-status"];
 
@@ -108,10 +122,82 @@ router.post('/',urlencodedParser,slide);
                 
                 explainer.sendProductExplainerJson("formJson", JSON.stringify(usersRetrievedData[usersRetrievedData.length - 1]),0);
 
-                res.render('pages/slideshow', {datas: imgdata,clientName:clientName,imageCount:imageCount,scenesCount:scenesCount,status:true});
+                storeLatestClientData(clientName,JSON.stringify(usersRetrievedData[usersRetrievedData.length - 1]),0);
+
+
+
+                const dir = jsDir+clientName;
+
+                fse.emptydirSync(dir);
+
+                for(var i=0; i<scenesCount; i++) 
+                fse.move(jsDir+clientName+'_'+i+imageType, dir+'/'+clientName+'_'+i+imageType, err => {
+                  if (err) return console.error(err)
+
+                    console.log('success!')
+                })
+
+                res.render('pages/status', {datas: imgdata,clientName:clientName,imageCount:imageCount,scenesCount:scenesCount,status:true});
 
       }  
     }
+    else{
+
+         const file_path2 = './jsonData/'+clientName+'.json';
+         var fileData = fs.readFileSync(file_path2);
+         var clientData = JSON.parse(fileData);
+
+
+               const dir = jsDir+clientName;
+
+                fse.emptydirSync(dir);
+
+                for(var i=0; i<scenesCount; i++) 
+                fse.move(jsDir+clientName+'_'+i+imageType, dir+'/'+clientName+'_'+i+imageType, err => {
+                  if (err) return console.error(err)
+
+                    console.log('success!')
+                })
+
+         res.render('pages/template1',{clientData:clientData});
+        //require('./prepare').slide(req,res,temp);
+
+    }
+  }
+
+
+function storeLatestClientData (clientName,formJson,res) {
+
+if(formJson)
+
+{
+
+    const file_path = './jsonData/'+clientName+'.json'
+
+    fse.ensureFile(file_path, err => {
+      console.log(err) // => null
+      // file has now been created, including the directory it is to be placed in
+    })
+
+        var data = fs.readFile(file_path, encodingFormat, function(err, data) {
+
+      // write the JSON to a file in an array format using stream
+        var stream = fs.createWriteStream(file_path);
+        stream.once('open', function (fd) {
+            stream.write('[' + formJson.replace(/render_status/g,'render-status') + ']');
+            stream.end();
+        });
+
+    //}
+
+});
+
+}
+
+}
+
 
 module.exports = router;
+
 module.exports.slide = slide;
+

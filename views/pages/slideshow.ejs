@@ -396,6 +396,8 @@
 
                  <input id="generateVideo" type="hidden" class="form-control" name="generateVideo" placeholder="Enter a Website URL" title="" value='false'>
 
+                 <input id="generateForm" type="hidden" class="form-control" name="generateForm" placeholder="" title="" value='false'>
+
 
                  <div style="visibility: hidden">
 
@@ -409,13 +411,25 @@
 
                    <form action="/slideshow" method="post">
 
-                    
+                    <input id="generateForm" type="hidden" class="form-control" name="generateForm" placeholder="" title="" value='false'>
+
                     <input id="generateVideo" type="hidden" class="form-control" name="generateVideo" placeholder="Enter a Website URL" title="" value='true'>
 
                     <button type="submit" id="btnlogin"  class="btn btn-default btn-lg" style="margin-top: 10px">Generate Video</button>
             
                      
-              </form>   
+              </form>
+
+                <form action="/slideshow" method="post">
+
+                    <div align="left">
+                    <input id="generateForm" type="hidden" class="form-control" name="generateForm" placeholder="" title="" value='true'>
+
+                    <button type="submit" id="btnlogin"  class="btn btn-default btn-lg" style="margin-top: 10px;">Go back to form</button>
+                    </div>
+                      
+              </form> 
+
           </div>
       </body>
   </html>

@@ -47,6 +47,7 @@ authRouter.route('/profile')
 			.get(function(req, res){
 					//res.json(req.user);
 					res.redirect('/createObj');
+					 //res.render('pages/template',{clientData:[]});
 			});
 	return authRouter;
 };

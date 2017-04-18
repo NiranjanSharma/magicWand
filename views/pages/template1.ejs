@@ -30,8 +30,9 @@
               class="form-control" 
               name="characterName" 
               pattern="[A-Za-z\s]{2,10}"
-              placeholder="Enter your Character Name" value="" 
+              placeholder="Enter your Character Name" value="<%= clientData[0].characterName %>" 
               title="Character Name should be min length of 2 and max length of 10 with A-Za-z" required>
+              <!-- <%= clientData[0].characterName %> -->
           </div>
         </div>
 
@@ -47,7 +48,7 @@
               class="form-control" 
               name="characterProfession" 
               pattern="[A-Za-z\s]{2,10}"
-              placeholder="Enter your Character profession" 
+              placeholder="Enter your Character profession" value="<%= clientData[0].characterProfession %>"
               title="Character profession should be min length of 2 and max length of 10 with A-Za-z" required>
           </div>
         </div>
@@ -64,7 +65,7 @@
               class="form-control" 
               name="problemStatement" 
               pattern="[A-Za-z\s]{5,80}"
-              placeholder="Enter the problem customer is facing with" 
+              placeholder="Enter the problem customer is facing with" value="<%= clientData[0].problemStatement %>"
               title="Character profession should be min length of 5 and max length of 80 with A-Za-z" required>
           </div>
         </div>
@@ -81,7 +82,7 @@
               class="form-control" 
               name="exploredOption1" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter the first option he explored" 
+              placeholder="Enter the first option he explored" value="<%= clientData[0].exploredOption1 %>"
               title="Option should be min length of 5 and max length of 20 with A-Za-z" required>
           </div>
         </div>
@@ -98,7 +99,7 @@
               class="form-control" 
               name="exploredOption2" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter the second option he explored" 
+              placeholder="Enter the second option he explored" value="<%= clientData[0].exploredOption2 %>"
               title="Option should be min length of 2 and max length of 20 with A-Za-z" required>
           </div>
         </div>
@@ -115,7 +116,7 @@
               class="form-control" 
               name="exploredOption3" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter the third option he explored" 
+              placeholder="Enter the third option he explored" value="<%= clientData[0].exploredOption3 %>"
               title="Option should be min length of 2 and max length of 10 with A-Za-z" required>
           </div>
         </div>
@@ -132,7 +133,7 @@
               class="form-control" 
               name="productName" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter your product name" 
+              placeholder="Enter your product name" value="<%= clientData[0].productName %>"
               title="Product name should be min length of 2 and max length of 20 with A-Za-z" required>
           </div>
         </div>
@@ -145,7 +146,7 @@
           <div class="col-xs-12">
             <input 
               type="file" 
-              class="btn btn-default btn-file col-xs-12" 
+              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].productLogo %>"
               name="productLogo" required >
           </div>
         </div>
@@ -164,7 +165,7 @@
               type="text" 
               class="form-control" 
               name="slogan" 
-              placeholder="Enter Product Slogan"
+              placeholder="Enter Product Slogan" value="<%= clientData[0].slogan %>"
               pattern="[A-Za-z\s]{5,60}"
               title="Slogan should be min length of 5 and max length of 60 with A-Za-z0-9.*&:" required>
           </div>
@@ -181,7 +182,7 @@
               type="text" 
               class="form-control" 
               name="benefit1" 
-              placeholder="Provide your first benefit"
+              placeholder="Provide your first benefit" value="<%= clientData[0].benefit1 %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
             </div>
@@ -199,7 +200,7 @@
               type="text" 
               class="form-control" 
               name="benefit2" 
-              placeholder="Provide your second benefit"
+              placeholder="Provide your second benefit" value="<%= clientData[0].benefit2 %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
             </div>
@@ -216,7 +217,7 @@
               type="text" 
               class="form-control" 
               name="benefit3" 
-              placeholder="Provide your third benefit"
+              placeholder="Provide your third benefit" value="<%= clientData[0].benefit3 %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
             </div>
@@ -235,7 +236,7 @@
               type="text" 
               class="form-control" 
               name="soultionOffered" 
-              placeholder="Enter solution  of Product"
+              placeholder="Enter solution  of Product" value="<%= clientData[0].soultionOffered %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 60 with A-Za-z" required>
           </div>
@@ -252,7 +253,7 @@
               type="text" 
               class="form-control" 
               name="keyFeature1" 
-              placeholder="Provide the first key feature"
+              placeholder="Provide the first key feature" value="<%= clientData[0].keyFeature1 %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 60 with A-Za-z" required>
           </div>
@@ -269,7 +270,7 @@
               type="text" 
               class="form-control" 
               name="keyFeature2" 
-              placeholder="Provide second key feature"
+              placeholder="Provide second key feature" value="<%= clientData[0].keyFeature2 %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z" required>
           </div>
@@ -286,7 +287,7 @@
               type="text" 
               class="form-control" 
               name="keyFeature3" 
-              placeholder="Provide the second key feature"
+              placeholder="Provide the second key feature" value="<%= clientData[0].keyFeature3 %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z" required>
           </div>
@@ -303,7 +304,7 @@
           <div class="col-xs-12">
             <input 
               type="file" 
-              class="btn btn-default btn-file col-xs-12" 
+              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].screen1 %>"
               name="screen1" required >
           </div>
         </div>
@@ -319,7 +320,7 @@
               type="text" 
               class="form-control" 
               name="screen1Text" 
-              placeholder="Provide the Screen1 text"
+              placeholder="Provide the Screen1 text" value="<%= clientData[0].screen1Text %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
           </div>
@@ -333,7 +334,7 @@
           <div class="col-xs-12">
             <input 
               type="file" 
-              class="btn btn-default btn-file col-xs-12" 
+              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].screen2 %>"
               name="screen2" required >
           </div>
         </div>
@@ -349,7 +350,7 @@
               type="text" 
               class="form-control" 
               name="screen2Text" 
-              placeholder="Provide the Screen2 text"
+              placeholder="Provide the Screen2 text" value="<%= clientData[0].screen2Text %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
           </div>
@@ -363,7 +364,7 @@
           <div class="col-xs-12">
             <input 
               type="file" 
-              class="btn btn-default btn-file col-xs-12" 
+              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].screen3 %>"
               name="screen3" required >
           </div>
         </div>
@@ -379,7 +380,7 @@
               type="text" 
               class="form-control" 
               name="screen3Text" 
-              placeholder="Provide the Screen3 text"
+              placeholder="Provide the Screen3 text" value="<%= clientData[0].screen3Text %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
           </div>
@@ -397,7 +398,7 @@
             class="form-control" 
             name="output" 
             placeholder="Enter your name"
-            pattern="[A-Za-z\s]{5,60}"
+            pattern="[A-Za-z\s]{5,60}" value="<%= clientData[0].output %>"
             title="Name should be min length of 5 and max length of 60 with A-Za-z0-9.*&:" required>
           </div>
         </div>
@@ -413,7 +414,7 @@
               type="text" 
               class="form-control" 
               name="website" 
-              placeholder="Enter a Website URL"
+              placeholder="Enter a Website URL" value="<%= clientData[0].website %>"
               title="" required> 
               <!-- pattern="http://stackoverflow.com"www.?-?(\w+)*.[A-Za-z0-9].com   -->
           </div>

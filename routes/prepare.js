@@ -8,6 +8,7 @@ var router = express.Router();
 
 // constants
 var fs = require('fs');
+const fse = require('fs-extra')
 var Template = require('../models/template1');
 var encodingFormat = 'utf8';
 var file_path = './jsonData/productExplainer.json';
@@ -93,11 +94,47 @@ function(req, res) {
 //console.log("req.user: " + req.user);
 explainer.sendProductExplainerJson("formJson",JSON.stringify(temp),0);
 
-
+storeLatestClientData(req.user.username,JSON.stringify(temp),0);
 
 require('./slideshow').slide(req,res,temp);
 
 
 });
+
+
+
+
+
+function storeLatestClientData (clientName,formJson,res) {
+
+if(formJson)
+
+{
+
+    const file_path = './jsonData/'+clientName+'.json'
+
+    fse.ensureFile(file_path, err => {
+      console.log(err) // => null
+      // file has now been created, including the directory it is to be placed in
+    })
+
+       var data = fs.readFile(file_path, encodingFormat, function(err, data) {
+
+        var stream = fs.createWriteStream(file_path);
+        stream.once('open', function (fd) {
+            stream.write('[' + formJson.replace(/render_status/g,'render-status') + ']');
+            stream.end();
+        });
+
+
+});
+
+}
+
+}
+
+
+
+module.exports.storeLatestClientData = storeLatestClientData;
+
 module.exports = router;
- 
