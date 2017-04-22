@@ -1,432 +1,223 @@
-<html lang="en">
 
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/template.css" />
-  </head>
 
-  <body class="container">
-    
-    <header>
-      <%include ../partials/header %>
-    </header>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Minimal Contact Form</title>
+  
+  
+  
+      <link rel="stylesheet" href="../../css/style3.css">
 
-    <head>
-      <h2><% include ../partials/head %>Template</h2>
-    </head>
+  
+</head>
 
-    <form action="/prepareObject" method="post" enctype = "multipart/form-data">
+<body>
 
-      <div class="col-xs-4">
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter your Character Name</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              id="characterName" 
-              type="text" 
-              class="form-control" 
-              name="characterName" 
+<form id="contact-form" action="/prepareObject" method="post" enctype = "multipart/form-data">
+  <p>Dear Erlen,</p>
+  <p>Meet
+   <input id="characterName" type="text" class="form-control" name="characterName" 
               pattern="[A-Za-z\s]{2,10}"
-              placeholder="Enter your Character Name" value="<%= clientData[0].characterName %>" 
-              title="Character Name should be min length of 2 and max length of 10 with A-Za-z" required>
-              <!-- <%= clientData[0].characterName %> -->
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter your Character profession</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+              placeholder="Your customer name" value="<%= clientData[0].characterName %>" title="Character Name should be min length of 2 and max length of 10 with A-Za-z" required>
+ He's a   <input 
               id="characterProfession" 
               type="text" 
               class="form-control" 
               name="characterProfession" 
               pattern="[A-Za-z\s]{2,10}"
-              placeholder="Enter your Character profession" value="<%= clientData[0].characterProfession %>"
-              title="Character profession should be min length of 2 and max length of 10 with A-Za-z" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter the problem statement</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+              placeholder="Your customer profession" value="<%= clientData[0].characterProfession %>" 
+              title="Character profession should be min length of 2 and max length of 10 with A-Za-z" required></p>
+ 
+  <p><label for="email">He's struggling to </label>
+    <input 
               id="problemStatement" 
               type="text" 
               class="form-control" 
               name="problemStatement" 
               pattern="[A-Za-z\s]{5,80}"
-              placeholder="Enter the problem customer is facing with" value="<%= clientData[0].problemStatement %>"
+              placeholder="problem of your customer " value="<%= clientData[0].problemStatement %>"
               title="Character profession should be min length of 5 and max length of 80 with A-Za-z" required>
-          </div>
-        </div>
+  </p>
 
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter the first option explored</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+  <p>He has explored 
+    <label for="your-message">every option</label> available</p>
+  <p> <input 
               id="exploredOption1" 
               type="text" 
               class="form-control" 
               name="exploredOption1" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter the first option he explored" value="<%= clientData[0].exploredOption1 %>"
-              title="Option should be min length of 5 and max length of 20 with A-Za-z" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter the second option explored</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+              placeholder="First option" value="<%= clientData[0].exploredOption1 %>"
+              title="Option should be min length of 5 and max length of 20 with A-Za-z" required></p>
+    <p>  <input 
               id="exploredOption2" 
               type="text" 
               class="form-control" 
               name="exploredOption2" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter the second option he explored" value="<%= clientData[0].exploredOption2 %>"
-              title="Option should be min length of 2 and max length of 20 with A-Za-z" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter the third option explored</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+              placeholder="Second option" value="<%= clientData[0].exploredOption2 %>"
+              title="Option should be min length of 2 and max length of 20 with A-Za-z" required></p>
+    <p>  <input 
               id="exploredOption3" 
               type="text" 
               class="form-control" 
               name="exploredOption3" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter the third option he explored" value="<%= clientData[0].exploredOption3 %>"
-              title="Option should be min length of 2 and max length of 10 with A-Za-z" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter your product name</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+              placeholder="Third option"  value="<%= clientData[0].exploredOption3 %>"
+              title="Option should be min length of 2 and max length of 10 with A-Za-z" required></p>
+  <p>And lost control on things to focus...</p>
+    <p> That is when he heard about  
+    <input 
               id="productName" 
               type="text" 
               class="form-control" 
               name="productName" 
               pattern="[A-Za-z\s]{2,20}"
-              placeholder="Enter your product name" value="<%= clientData[0].productName %>"
-              title="Product name should be min length of 2 and max length of 20 with A-Za-z" required>
-          </div>
-        </div>
+              placeholder="Your product name" value="<%= clientData[0].productName %>"
+              title="Product name should be min length of 2 and max length of 20 with A-Za-z" required>  </p>
 
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Upload your Product Logo</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+    <p> Product logo
+  <input 
               type="file" 
-              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].productLogo %>"
+              class="btn btn-default btn-file col-xs-12"  value="<%= clientData[0].productLogo %>"
               name="productLogo" required >
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xs-4">
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Enter Product Slogan</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+              </p>
+              <p>Product tagline <input 
               id="slogan" 
               type="text" 
               class="form-control" 
               name="slogan" 
-              placeholder="Enter Product Slogan" value="<%= clientData[0].slogan %>"
+              placeholder="Provide your Tagline"  value="<%= clientData[0].slogan %>"
               pattern="[A-Za-z\s]{5,60}"
-              title="Slogan should be min length of 5 and max length of 60 with A-Za-z0-9.*&:" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide your first benefit</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              id="benefit1" 
+              title="Slogan should be min length of 5 and max length of 60 with A-Za-z0-9.*&:" required> </p> 
+   <p> It solves by  <input 
+              id="solutionOffered" 
               type="text" 
               class="form-control" 
-              name="benefit1" 
-              placeholder="Provide your first benefit" value="<%= clientData[0].benefit1 %>"
+              name="solutionOffered" 
+              placeholder="Provide the solution offered" value="<%= clientData[0].solutionOffered %>"
               pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
-            </div>
-          </div>
+                            title="About should be min length of 5 and max length of 60 with A-Za-z" required></p>
 
 
-             <div class="col-xs-12">
-            <div class="col-xs-12">
-             <label class="lblForm">Provide your second benefit</label>
-            </div>
 
-            <div class="col-xs-12">
-              <input 
-              id="benefit2" 
-              type="text" 
-              class="form-control" 
-              name="benefit2" 
-              placeholder="Provide your second benefit" value="<%= clientData[0].benefit2 %>"
-              pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
-            </div>
-          </div>
-
-           <div class="col-xs-12">
-            <div class="col-xs-12">
-             <label class="lblForm">Provide your third benefit</label>
-            </div>
-
-            <div class="col-xs-12">
-              <input 
-              id="benefit3" 
-              type="text" 
-              class="form-control" 
-              name="benefit3" 
-              placeholder="Provide your third benefit" value="<%= clientData[0].benefit3 %>"
-              pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
-            </div>
-          </div>
-
-        
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide the solution offered</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              id="soultionOffered" 
-              type="text" 
-              class="form-control" 
-              name="soultionOffered" 
-              placeholder="Enter solution  of Product" value="<%= clientData[0].soultionOffered %>"
-              pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 60 with A-Za-z" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide the first key feature</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+  <p>Here are the main key features</p>
+  <p> <input 
               id="keyFeature1" 
               type="text" 
               class="form-control" 
               name="keyFeature1" 
-              placeholder="Provide the first key feature" value="<%= clientData[0].keyFeature1 %>"
+              placeholder="Provide the first key feature"  value="<%= clientData[0].keyFeature1 %>"
               pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 60 with A-Za-z" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide the second key feature</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+              title="About should be min length of 5 and max length of 60 with A-Za-z" required></p>
+    
+  <input 
               id="keyFeature2" 
               type="text" 
               class="form-control" 
               name="keyFeature2" 
-              placeholder="Provide second key feature" value="<%= clientData[0].keyFeature2 %>"
+              placeholder="Provide the second key feature"  value="<%= clientData[0].keyFeature2 %>"
               pattern="[A-Za-z\s]{5,60}"
               title="About should be min length of 5 and max length of 70 with A-Za-z" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide the third key feature</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
+  <p>  <input 
               id="keyFeature3" 
               type="text" 
               class="form-control" 
               name="keyFeature3" 
-              placeholder="Provide the second key feature" value="<%= clientData[0].keyFeature3 %>"
+              placeholder="Provide the third key feature"  value="<%= clientData[0].keyFeature3 %>"
               pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 70 with A-Za-z" required>
-          </div>
-        </div>
-      </div>
+              title="About should be min length of 5 and max length of 70 with A-Za-z" required></p>
 
-      <div class="col-xs-4">
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Upload your first screen</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              type="file" 
-              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].screen1 %>"
-              name="screen1" required >
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide the Screen1 text</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              id="screen1Text" 
+  <p>  <input 
+              id="keyFeature4" 
               type="text" 
+              class="form-control" 
+              name="keyFeature4" 
+              placeholder="Provide the fourth key feature"  value="<%= clientData[0].keyFeature4 %>"
+              pattern="[A-Za-z\s]{5,60}"
+              title="About should be min length of 5 and max length of 70 with A-Za-z" required></p>
+
+  <p>This is how the product works</p>
+  <p> Product demo screen one
+    <input type="file" class="btn btn-default btn-file col-xs-12" name="screen1" value="<%= clientData[0].screen1 %>" required ></p><p>
+   About the demo screen 
+  <input id="screen1Text" type="text" 
               class="form-control" 
               name="screen1Text" 
-              placeholder="Provide the Screen1 text" value="<%= clientData[0].screen1Text %>"
-              pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Upload your second screen</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              type="file" 
-              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].screen2 %>"
-              name="screen2" required >
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide the Screen2 text</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              id="screen2Text" 
-              type="text" 
+              placeholder="About the screen"
+              pattern="[A-Za-z\s]{5,60}" value="<%= clientData[0].screen1Text %>"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required> </p>
+  
+  <p> Product demo screen two
+    <input type="file" class="btn btn-default btn-file col-xs-12" name="screen2"  value="<%= clientData[0].screen2 %>" required ></p><p>
+   About the demo screen two
+  <input id="screen2Text" type="text" 
               class="form-control" 
               name="screen2Text" 
-              placeholder="Provide the Screen2 text" value="<%= clientData[0].screen2Text %>"
-              pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Upload your third screen</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              type="file" 
-              class="btn btn-default btn-file col-xs-12" value="<%= clientData[0].screen3 %>"
-              name="screen3" required >
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Provide the Screen3 text</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              id="screen3Text" 
-              type="text" 
+              placeholder="About the screen"
+              pattern="[A-Za-z\s]{5,60}" value="<%= clientData[0].screen2Text %>"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required> </p>
+    
+    <p> Product demo screen three
+    <input type="file" class="btn btn-default btn-file col-xs-12" name="screen3" value="<%= clientData[0].screen3 %>" required ></p><p>
+   About the demo screen three
+  <input id="screen3Text" type="text" 
               class="form-control" 
               name="screen3Text" 
-              placeholder="Provide the Screen3 text" value="<%= clientData[0].screen3Text %>"
+              placeholder="About the screen" value="<%= clientData[0].screen3Text %>" 
               pattern="[A-Za-z\s]{5,60}"
-              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-           <label class="lblForm">Entery your name</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-            id="output" 
-            type="text" 
-            class="form-control" 
-            name="output" 
-            placeholder="Enter your name"
-            pattern="[A-Za-z\s]{5,60}" value="<%= clientData[0].output %>"
-            title="Name should be min length of 5 and max length of 60 with A-Za-z0-9.*&:" required>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <label class="lblForm">Website</label>
-          </div>
-
-          <div class="col-xs-12">
-            <input 
-              id="website" 
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required> </p>
+  
+  <p> Adding to that now, He could also have</p>
+  
+   <input 
+              id="benefit1" 
               type="text" 
               class="form-control" 
-              name="website" 
-              placeholder="Enter a Website URL" value="<%= clientData[0].website %>"
-              title="" required> 
-              <!-- pattern="http://stackoverflow.com"www.?-?(\w+)*.[A-Za-z0-9].com   -->
-          </div>
-        </div>
+              name="benefit1" 
+              placeholder="Provide your first benefit" 
+              pattern="[A-Za-z\s]{5,60}"  value="<%= clientData[0].benefit1 %>"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+   <input 
+              id="benefit2" 
+              type="text" 
+              class="form-control" 
+              name="benefit2" 
+              placeholder="Provide your second benefit"
+              pattern="[A-Za-z\s]{5,60}"  value="<%= clientData[0].benefit2 %>"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+   <input 
+              id="benefit3" 
+              type="text" 
+              class="form-control" 
+              name="benefit3" 
+              placeholder="Provide your third benefit"
+              pattern="[A-Za-z\s]{5,60}"  value="<%= clientData[0].benefit3 %>"
+              title="About should be min length of 5 and max length of 70 with A-Za-z0-9.*&:" required>
+  <p>Want to know more</p>
+  <p> <input 
+              id="contactDetails" 
+              type="text" 
+              class="form-control" 
+              name="contactDetails" 
+              placeholder="Add your contact details" value="<%= clientData[0].contactDetails %>"> </p>
+              
+    <button type="submit">
+      <svg version="1.1" class="send-icn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="36px" viewBox="0 0 100 36" enable-background="new 0 0 100 36" xml:space="preserve">
+        <path d="M100,0L100,0 M23.8,7.1L100,0L40.9,36l-4.7-7.5L22,34.8l-4-11L0,30.5L16.4,8.7l5.4,15L23,7L23.8,7.1z M16.8,20.4l-1.5-4.3
+  l-5.1,6.7L16.8,20.4z M34.4,25.4l-8.1-13.1L25,29.6L34.4,25.4z M35.2,13.2l8.1,13.1L70,9.9L35.2,13.2z" />
+      </svg>
+      <small>send</small>
+    </button>
+  </p>
+</form>
 
-        <div class="col-xs-12">
-          <div class="col-xs-12">
-            <button type="submit" id="btnlogin"  class="btn btn-default btn-lg" style="margin-top: 10px">Generate</button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </body>
+<small class='website'>Vist <a href='http://www.erlen.co.uk/' target='_blank'>erlen.co.uk</a> to see my work</small>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="../../js/index.js"></script>
+
+</body>
 </html>
-

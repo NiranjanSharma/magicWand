@@ -38,9 +38,11 @@ authRouter.route('/signIn')
 
 authRouter.route('/profile')
 		.all(function(req, res, next){
-				if(!req.user){
+				//if(!req.user){
+					//req.session['userLoggedIn'] = 'true';
+
 					res.redirect('/');
-				} 
+				//} 
 				console.log('req.user._id ' + req.user._id);
 				next();
 			})

@@ -63,10 +63,11 @@ function(req, res) {
     productName: req.body.productName,    
     productLogo: req.files.productLogo[0].filename,
 
-    soultionOffered: req.body.soultionOffered,
+    solutionOffered: req.body.solutionOffered,
     keyFeature1: req.body.keyFeature1,
     keyFeature2: req.body.keyFeature2,
     keyFeature3: req.body.keyFeature3,
+    keyFeature4: req.body.keyFeature4,
 
     screen1Text: req.body.screen1Text,
     screen1: req.files.screen1[0].filename,
@@ -81,7 +82,7 @@ function(req, res) {
     benefit2: req.body.benefit2,
     benefit3: req.body.benefit3,
     
-    website: req.body.website,
+    contactDetails: req.body.contactDetails,
     slogan: req.body.slogan,
     output:  req.user.username+'_[#]',
     module:'',
