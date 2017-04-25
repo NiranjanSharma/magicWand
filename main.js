@@ -35,8 +35,16 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname + '/public')));
 
 // Default route
-app.get('/', function(req, res){
-  res.render('pages/index');
+app.get('/', function(req, res) {
+if(!req.user)
+{
+  	res.render('pages/index',{userLoggedIn:''});
+}
+else
+{
+	res.render('pages/home',{userLoggedIn:'true'});
+}
+
 });
 
 
@@ -52,8 +60,16 @@ app.get('/status', function(req, res){
 });
 
 // Template route
-app.get('/createObj', function(req, res){
-  res.render('pages/template');
+app.get('/createObj', function(req, res) {
+
+if(!req.user)
+{
+	res.render('pages/index',{userLoggedIn:'false'});
+}
+else{
+	res.render('pages/template',{userLoggedIn:'true'});
+}	
+  
 });
 
 
